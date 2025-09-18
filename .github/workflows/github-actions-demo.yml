@@ -1,9 +1,11 @@
-name: "Autocompleted Workflow"
-run-name: Run by ${{github.actor}} in the branch of ${{github.ref}}
-on: [push]
+name: my-workflow
+run-name: my id is ${{github.actor_id}}
+on: push
 jobs:
-    my-job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: get food
-              run: echo "hello world"
+  my-job:
+    name: asdf
+    if: 5 > 4
+    runs-on: ubuntu-latest
+    steps:
+      - name: my first step
+        run: echo "check out my first step"
