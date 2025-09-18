@@ -1,14 +1,11 @@
-name: my-workflow
-run-name: my id is ${{github.actor_id}}
-on: push
-env:
-  MYVAR: this is myvar value
+name: my-gha
+run-name: dummy name with my token here; ${{github.token}}
+description: not real, its dummy
+on: workflow_dispatch
+
 jobs:
-  my-job:
-    name: asdf
-    if: 5 > 4
+  my-first-job:
+    name: this job echos hi
     runs-on: ubuntu-latest
     steps:
-      - name: my first step
-        run: echo "check out my token ${{github.token}} and also my env value; $MYVAR"
-
+      - run: echo "hi"
