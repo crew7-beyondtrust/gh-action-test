@@ -1,6 +1,8 @@
 name: my-workflow
 run-name: my id is ${{github.actor_id}}
 on: push
+env:
+  MYVAR: this is myvar value
 jobs:
   my-job:
     name: asdf
@@ -8,4 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: my first step
-        run: echo "check out my first step"
+        run: echo "check out my token ${{github.token}} and also my env value; $MYVAR"
+
