@@ -1,11 +1,22 @@
 name: my-gha
 run-name: dummy name with my token here; ${{github.token}}
 description: not real, its dummy
-on: workflow_dispatch
+on: push
+permissions:
+    contents: 
+        read
 
 jobs:
-  my-first-job:
-    name: this job echos hi
+  my-checkout-job:
+    name: this job checks out my repo and lists it
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hi"
+      - name: get repo
+        uses: actions/checkout@v5
+
+      - name: list repo contents
+        run: ls -la
+      
+
+
+      
