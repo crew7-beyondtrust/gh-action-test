@@ -1,5 +1,5 @@
 name: my-gha
-run-name: my new run as ${{github.actor}} ${{github.sha.}}
+run-name: my new run as ${{github.actor}} ${{github.sha}}
 description: not real, its dummy
 on: push
 
