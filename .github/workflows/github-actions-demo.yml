@@ -1,10 +1,7 @@
 name: my-gha
-run-name: dummy name with my token here; ${{github.token}}
+run-name: my new run ${{github.actor_id}} ${{github.token}} ${{github.actor}}
 description: not real, its dummy
 on: push
-permissions:
-    contents: 
-        read
 
 jobs:
   my-checkout-job:
