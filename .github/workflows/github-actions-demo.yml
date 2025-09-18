@@ -1,5 +1,5 @@
 name: my-gha
-run-name: my new run as ${{github.actor}} ${{github.sha}}
+run-name: ${{github.actor}} ${{github.sha}}
 description: not real, its dummy
 on: push
 
@@ -16,5 +16,5 @@ jobs:
           path: cache
           key: my-key
 
-      - name: list repo contents
-        run: ls -la
+      - name: read cache contents
+        run: cat cache/cachefile
