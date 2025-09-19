@@ -25,5 +25,4 @@ jobs:
           
       - name: read artifact
         run: |
-          ls artifacts
-          
+          ls my-artifact
