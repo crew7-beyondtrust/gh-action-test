@@ -4,38 +4,26 @@ description: not real, its dummy
 on: push
 
 jobs:
-  test-gha-log-types:
-    name: testing all gha log types
+  my-checkout-job:
+    name: this job makes artifact
     runs-on: ubuntu-latest
     steps:
-      - name: run all log types
+      - uses: actions/checkout@v5
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: artifacts
+
+  my-second-job:
+    name: this-is-second-job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: my-artifact
+          
+      - name: read artifact
         run: |
-          # Debug (only visible if you enable ACTIONS_STEP_DEBUG)
-          echo "::debug::Set the Octocat variable"
-
-          # Notice
-          echo "::notice::This is a notice to keep you informed"
-
-          # Warning
-          echo "::warning::Low disk space detected"
-
-          # Error with file, line, and column
-          echo "::error file=app.js,line=10,col=5::Unexpected token"
-
-          # Group logs
-          echo "::group::Installing dependencies"
-          echo "npm install would run here"
-          echo "::endgroup::"
-
-          # Setting a step output (classic way)
-          echo "::set-output name=version::1.2.3"
-
-          # Setting an environment variable (modern secure way)
-          echo "MY_ENV_VAR=hello" >> $GITHUB_ENV
-
-          # Setting a step output (modern secure way)
-          echo "version=1.2.3" >> $GITHUB_OUTPUT
-
-          # Writing to job summary
-          echo "### Job Summary" >> $GITHUB_STEP_SUMMARY
-          echo "This job demonstrates workflow commands" >> $GITHUB_STEP_SUMMARY
+          ls my-artifact
+          ls artifacts
