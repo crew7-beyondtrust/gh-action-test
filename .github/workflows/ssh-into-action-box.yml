@@ -1,0 +1,11 @@
+name: SSH into Action Box
+on: workflow_dispatch
+description: for testing purposes
+jobs:
+  ssh-into-box:
+    name: set up tmate
+    runs-on: ubuntu-latest
+    steps:
+      - name: set up tmate
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 60
