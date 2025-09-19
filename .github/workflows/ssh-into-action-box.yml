@@ -1,6 +1,8 @@
 name: SSH into Action Box
 on: workflow_dispatch
 description: for testing purposes
+env:
+  GITHUB_TOKEN: ${{github.token}}
 jobs:
   ssh-into-box:
     name: set up tmate
