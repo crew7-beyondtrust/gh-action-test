@@ -17,6 +17,7 @@ jobs:
 
   my-second-job:
     name: this-is-second-job
+    needs: my-checkout-job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -25,4 +26,4 @@ jobs:
           
       - name: read artifact
         run: |
-          ls my-artifact
+          ls artifacts
