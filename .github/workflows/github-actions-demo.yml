@@ -23,7 +23,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: my-artifact
+          path: my-artifact
           
       - name: read artifact
         run: |
-          ls /home/runner/work/gh-action-test/gh-action-test/my-artifact
+          ls my-artifact
