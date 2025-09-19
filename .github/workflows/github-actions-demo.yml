@@ -9,35 +9,12 @@ on: push
 
 jobs:
   my-checkout-job:
-    name: this job makes artifact
+    name: this job makes artifact attensiation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      
-      - uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: artifacts
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
         with:
-          subject-path: 'artifacts/**'
-
-
-
-  my-second-job:
-    name: this-is-second-job
-    needs: my-checkout-job
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: my-artifact
-          path: my-artifact
-          
-      - name: read artifact
-        run: |
-          ls my-artifact
-
-          
+          subject-path: 'attenfile.txt'
