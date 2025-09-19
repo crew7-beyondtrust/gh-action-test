@@ -5,16 +5,13 @@ on: push
 
 jobs:
   my-checkout-job:
-    name: this job checks out my repo and lists it
+    name: this job makes artifact
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       
-      - name: caching my cache directory
-        uses: actions/cache@v4
+      - uses: actions/upload-artifact
         with:
-          path: cache
-          key: my-key
+          name: my-artifact
+          path: artifacts
 
-      - name: read cache contents
-        run: cat cache/cachefile
